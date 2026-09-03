@@ -1,0 +1,302 @@
+[
+  {
+    "offering_id": "SVC-001",
+    "name": "Annual Preventive Maintenance Agreement",
+    "description": "Full-scope annual PM: refrigerant check, oil analysis, coil cleaning, controls calibration, safety device test. Labor + materials included.",
+    "category": "contract",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 4800,
+    "triggers": [
+      "pm_overdue",
+      "contract_expiry"
+    ],
+    "content": "annual preventive maintenance PM agreement refrigerant oil coil cleaning controls calibration labor materials",
+    "tags": [
+      "PM",
+      "annual",
+      "maintenance",
+      "contract",
+      "full_scope"
+    ]
+  },
+  {
+    "offering_id": "SVC-002",
+    "name": "Efficiency Recovery Audit",
+    "description": "2-day on-site efficiency evaluation: current kW/ton benchmarking, refrigerant charge verification, heat exchanger inspection, controls tuning. Written report with prioritized improvement actions.",
+    "category": "inspection",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 2200,
+    "triggers": [
+      "efficiency_drift",
+      "fleet_cohort_outlier"
+    ],
+    "content": "efficiency recovery audit kW per ton benchmarking refrigerant charge heat exchanger inspection controls tuning",
+    "tags": [
+      "efficiency",
+      "audit",
+      "benchmarking",
+      "kW_per_ton"
+    ]
+  },
+  {
+    "offering_id": "SVC-003",
+    "name": "Condenser Deep Clean Service",
+    "description": "Professional condenser cleaning: chemical degreasing + high-pressure rinse for air-cooled coils; tube bundle brushing + water treatment check for water-cooled units. Restores approach temperature delta.",
+    "category": "maintenance",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 1400,
+    "triggers": [
+      "high_approach_temp",
+      "efficiency_drift"
+    ],
+    "content": "condenser deep clean chemical degreasing high pressure rinse air cooled tube bundle water treatment approach temperature",
+    "tags": [
+      "condenser",
+      "deep_clean",
+      "approach_temp",
+      "tube_bundle",
+      "water_cooled"
+    ]
+  },
+  {
+    "offering_id": "SVC-004",
+    "name": "Predictive Motor Health Assessment",
+    "description": "Vibration analysis + thermal imaging on compressor motors and bearings. Identifies pre-fault conditions 30-60 days before failure. Includes written assessment and recommended spares.",
+    "category": "inspection",
+    "applicable_model_families": [
+      "30RB",
+      "30XA"
+    ],
+    "list_price_usd": 1800,
+    "triggers": [
+      "pre_fault_indicator"
+    ],
+    "content": "predictive motor health assessment vibration analysis thermal imaging compressor bearing pre-fault early warning",
+    "tags": [
+      "predictive",
+      "vibration",
+      "thermal_imaging",
+      "bearing",
+      "motor"
+    ]
+  },
+  {
+    "offering_id": "SVC-005",
+    "name": "Refrigerant Recharge & Leak Check",
+    "description": "Refrigerant charge verification using superheat/subcooling measurements, electronic leak check (all access points), top-up service. Restores rated capacity and efficiency.",
+    "category": "maintenance",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 1100,
+    "triggers": [
+      "efficiency_drift",
+      "pm_overdue"
+    ],
+    "content": "refrigerant recharge leak check superheat subcooling charge verification capacity efficiency restoration",
+    "tags": [
+      "refrigerant",
+      "recharge",
+      "leak_check",
+      "efficiency"
+    ]
+  },
+  {
+    "offering_id": "SVC-006",
+    "name": "ServiceEdge Advance Contract",
+    "description": "Premium multi-year service agreement: 24/7 remote monitoring, 4-hour emergency response, 2 PM visits/year, all parts and labor covered. Includes Carrier Connect IQ remote diagnostics.",
+    "category": "contract",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 18000,
+    "triggers": [
+      "contract_expiry",
+      "pm_overdue"
+    ],
+    "content": "ServiceEdge Advance premium multi-year service agreement remote monitoring emergency response PM parts labor Carrier Connect",
+    "tags": [
+      "ServiceEdge",
+      "premium",
+      "contract",
+      "remote_monitoring",
+      "emergency_response"
+    ]
+  },
+  {
+    "offering_id": "SVC-007",
+    "name": "ServiceEdge Optimum Contract",
+    "description": "Standard multi-year service agreement: remote monitoring, 8-hour emergency response, 1 PM visit/year, labor included, parts at cost. Good for facilities with in-house technicians.",
+    "category": "contract",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 9500,
+    "triggers": [
+      "contract_expiry"
+    ],
+    "content": "ServiceEdge Optimum standard service agreement remote monitoring emergency response PM labor in-house",
+    "tags": [
+      "ServiceEdge",
+      "standard",
+      "contract",
+      "remote_monitoring"
+    ]
+  },
+  {
+    "offering_id": "SVC-008",
+    "name": "Controls & Connectivity Upgrade",
+    "description": "OptiView XE panel install + RemoteLink IoT gateway setup + onboarding to Carrier Connect dashboard. Provides real-time alerts, efficiency trending, and remote set-point adjustment.",
+    "category": "upgrade",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 8900,
+    "triggers": [
+      "efficiency_drift",
+      "fleet_cohort_outlier"
+    ],
+    "content": "OptiView XE controls upgrade RemoteLink IoT gateway Carrier Connect dashboard real-time alerts efficiency trending remote setpoint",
+    "tags": [
+      "controls",
+      "upgrade",
+      "IoT",
+      "remote_monitoring",
+      "OptiView"
+    ]
+  },
+  {
+    "offering_id": "SVC-009",
+    "name": "Tube Bundle Replacement",
+    "description": "Full condenser/evaporator tube bundle replacement with enhanced micro-grooved tubes. Recommended when approach delta has increased >5°F from baseline or scale deposits are confirmed.",
+    "category": "upgrade",
+    "applicable_model_families": [
+      "19XR",
+      "30XA"
+    ],
+    "list_price_usd": 22000,
+    "triggers": [
+      "high_approach_temp"
+    ],
+    "content": "tube bundle replacement condenser evaporator micro-grooved approach delta scale deposits water cooled",
+    "tags": [
+      "tube_bundle",
+      "replacement",
+      "micro-grooved",
+      "approach_temp",
+      "upgrade"
+    ]
+  },
+  {
+    "offering_id": "SVC-010",
+    "name": "Compressor Rebuild Service",
+    "description": "Full factory-authorized scroll compressor rebuild: rotor/stator inspection, bearing replacement, motor rewind if needed. Extends compressor life 8-12 years post-rebuild.",
+    "category": "repair",
+    "applicable_model_families": [
+      "30RB",
+      "30XA"
+    ],
+    "list_price_usd": 14500,
+    "triggers": [
+      "pre_fault_indicator",
+      "repeat_part_failure"
+    ],
+    "content": "compressor rebuild scroll factory authorized rotor stator bearing motor rewind extended life repair",
+    "tags": [
+      "compressor",
+      "rebuild",
+      "factory_authorized",
+      "scroll",
+      "bearing"
+    ]
+  },
+  {
+    "offering_id": "SVC-011",
+    "name": "Root Cause Analysis Investigation",
+    "description": "Structured fault investigation for units with repeat alarms or repeat part failures. Includes oil analysis, vibration survey, refrigerant circuit analysis. Deliverable: RCA report + corrective action plan.",
+    "category": "inspection",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 3500,
+    "triggers": [
+      "repeat_part_failure"
+    ],
+    "content": "root cause analysis RCA repeat alarm fault investigation oil analysis vibration survey refrigerant circuit corrective action",
+    "tags": [
+      "RCA",
+      "root_cause",
+      "repeat_failure",
+      "fault_investigation"
+    ]
+  },
+  {
+    "offering_id": "SVC-012",
+    "name": "Fleet Efficiency Benchmarking Report",
+    "description": "Carrier-produced fleet performance report: kW/ton vs. peer cohort, seasonal efficiency trends, top 3 improvement opportunities per unit. Annual delivery; includes executive summary.",
+    "category": "inspection",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 1600,
+    "triggers": [
+      "fleet_cohort_outlier",
+      "efficiency_drift"
+    ],
+    "content": "fleet efficiency benchmarking report kW per ton peer cohort seasonal trends improvement opportunities executive summary",
+    "tags": [
+      "benchmarking",
+      "fleet",
+      "efficiency",
+      "report",
+      "cohort"
+    ]
+  },
+  {
+    "offering_id": "SVC-013",
+    "name": "Emergency Response Retainer",
+    "description": "Pre-paid emergency service hours (20h block) for unplanned outages. Guaranteed 4-hour dispatch, priority parts access. Valid 12 months from purchase.",
+    "category": "contract",
+    "applicable_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "list_price_usd": 5800,
+    "triggers": [
+      "contract_expiry",
+      "pm_overdue"
+    ],
+    "content": "emergency response retainer prepaid hours unplanned outage 4-hour dispatch priority parts",
+    "tags": [
+      "emergency",
+      "retainer",
+      "prepaid",
+      "dispatch"
+    ]
+  }
+]

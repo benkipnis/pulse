@@ -1,0 +1,31 @@
+{
+  "name": "pulse-equipment-platform",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "PULSE — Predictive Unified Lifecycle System for Equipment. Virtual Engineer diagnostics + Aftermarket Sales Intelligence on a shared MongoDB Atlas digital twin.",
+  "scripts": {
+    "seed": "node scripts/data/seed/load-sample-data.js",
+    "seed:drop": "node scripts/data/seed/load-sample-data.js --drop",
+    "generate:telemetry": "node scripts/data/generate-telemetry.js",
+    "generate:ams-data": "node scripts/data/generate-sample-ams-data.js",
+    "indexes:check": "node scripts/data/manage-search-indexes.js",
+    "indexes:create": "node scripts/data/manage-search-indexes.js --create --wait",
+    "mcp:dev": "node backend/src/index.js",
+    "dev:ve": "npm run dev --prefix frontend",
+    "dev:ams": "npm run dev --prefix frontend-ams",
+    "dev": "concurrently \"npm run mcp:dev\" \"npm run dev:ve\" \"npm run dev:ams\"",
+    "test:connectivity": "node --test tests/connectivity/*.test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.2.1",
+    "mongodb": "^6.16.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

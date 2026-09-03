@@ -1,0 +1,358 @@
+[
+  {
+    "part_id": "PART-001",
+    "part_number": "30RB-FLTR-KIT-A",
+    "description": "Condenser coil cleaning kit — includes biodegradable coil cleaner (4L), foam brush applicator, and PPE",
+    "category": "maintenance",
+    "compatible_model_families": [
+      "30RB",
+      "30XA",
+      "30GX"
+    ],
+    "typical_replacement_interval_years": 1,
+    "list_price_usd": 185,
+    "content": "condenser coil cleaning kit biodegradable cleaner maintenance air cooled chiller",
+    "tags": [
+      "condenser",
+      "cleaning",
+      "maintenance",
+      "air_cooled"
+    ],
+    "lead_time_days": 2
+  },
+  {
+    "part_id": "PART-002",
+    "part_number": "30RB-RFGR-R410A-30LB",
+    "description": "R-410A refrigerant recharge cylinder 30 lb — factory-certified for AquaSnap / AquaForce series",
+    "category": "maintenance",
+    "compatible_model_families": [
+      "30RB",
+      "30XA"
+    ],
+    "typical_replacement_interval_years": 3,
+    "list_price_usd": 520,
+    "content": "refrigerant R-410A recharge cylinder refrigerant top-up efficiency restoration",
+    "tags": [
+      "refrigerant",
+      "R410A",
+      "recharge",
+      "efficiency"
+    ],
+    "lead_time_days": 3
+  },
+  {
+    "part_id": "PART-003",
+    "part_number": "19XR-RFGR-R134A-50LB",
+    "description": "R-134a refrigerant cylinder 50 lb — for Evergreen 19XR centrifugal chillers",
+    "category": "maintenance",
+    "compatible_model_families": [
+      "19XR"
+    ],
+    "typical_replacement_interval_years": 4,
+    "list_price_usd": 680,
+    "content": "refrigerant R-134a recharge cylinder centrifugal chiller Evergreen",
+    "tags": [
+      "refrigerant",
+      "R134a",
+      "centrifugal",
+      "recharge"
+    ],
+    "lead_time_days": 3
+  },
+  {
+    "part_id": "PART-004",
+    "part_number": "30XA-FLTR-01",
+    "description": "Air inlet filter set (2-pack) — 30XA AquaForce, replaces every 12 months in typical commercial environments",
+    "category": "maintenance",
+    "compatible_model_families": [
+      "30XA"
+    ],
+    "typical_replacement_interval_years": 1,
+    "list_price_usd": 95,
+    "content": "air inlet filter replacement annual maintenance AquaForce 30XA",
+    "tags": [
+      "filter",
+      "air_inlet",
+      "annual_maintenance",
+      "30XA"
+    ],
+    "lead_time_days": 2
+  },
+  {
+    "part_id": "PART-005",
+    "part_number": "30RB-OIL-KIT",
+    "description": "Compressor oil and desiccant filter change kit — AquaSnap 30RB scroll compressor",
+    "category": "maintenance",
+    "compatible_model_families": [
+      "30RB"
+    ],
+    "typical_replacement_interval_years": 2,
+    "list_price_usd": 245,
+    "content": "compressor oil change desiccant filter kit scroll compressor maintenance 30RB",
+    "tags": [
+      "oil",
+      "desiccant",
+      "filter",
+      "scroll_compressor"
+    ],
+    "lead_time_days": 3
+  },
+  {
+    "part_id": "PART-006",
+    "part_number": "00PPG000012200A",
+    "description": "Motor temperature PTC sensor — Circuit A, compatible with 30XA AquaForce compressor circuits",
+    "category": "repair",
+    "compatible_model_families": [
+      "30XA",
+      "30RB"
+    ],
+    "typical_replacement_interval_years": 5,
+    "list_price_usd": 320,
+    "content": "motor temperature sensor PTC thermistor circuit A compressor protection",
+    "tags": [
+      "sensor",
+      "motor_temp",
+      "PTC",
+      "compressor_protection"
+    ],
+    "lead_time_days": 2
+  },
+  {
+    "part_id": "PART-007",
+    "part_number": "30XA-COMP-A-SEAL",
+    "description": "Compressor shaft seal kit — 30XA Circuit A scroll compressor, recommended after high-temperature events",
+    "category": "repair",
+    "compatible_model_families": [
+      "30XA"
+    ],
+    "typical_replacement_interval_years": 7,
+    "list_price_usd": 890,
+    "content": "shaft seal compressor repair kit scroll high temperature event 30XA",
+    "tags": [
+      "seal",
+      "shaft_seal",
+      "compressor",
+      "repair"
+    ],
+    "lead_time_days": 5
+  },
+  {
+    "part_id": "PART-008",
+    "part_number": "30RB-BEAR-SET",
+    "description": "Compressor bearing replacement set — premium grade, extends service life vs OEM standard by 40%",
+    "category": "repair",
+    "compatible_model_families": [
+      "30RB",
+      "30XA"
+    ],
+    "typical_replacement_interval_years": 6,
+    "list_price_usd": 1240,
+    "content": "bearing replacement premium grade scroll compressor extended life repair",
+    "tags": [
+      "bearing",
+      "compressor",
+      "premium",
+      "extended_life"
+    ],
+    "lead_time_days": 7
+  },
+  {
+    "part_id": "PART-009",
+    "part_number": "19XR-VANE-SET",
+    "description": "Inlet guide vane actuator assembly — 19XR centrifugal, commonly replaced after extended high-load operation",
+    "category": "repair",
+    "compatible_model_families": [
+      "19XR"
+    ],
+    "typical_replacement_interval_years": 8,
+    "list_price_usd": 3200,
+    "content": "inlet guide vane actuator centrifugal compressor 19XR repair high load",
+    "tags": [
+      "vane",
+      "guide_vane",
+      "actuator",
+      "centrifugal"
+    ],
+    "lead_time_days": 10
+  },
+  {
+    "part_id": "PART-010",
+    "part_number": "30RB-EXV-BODY",
+    "description": "Electronic expansion valve body assembly — 30RB / 30XA, replace when superheat control is erratic",
+    "category": "repair",
+    "compatible_model_families": [
+      "30RB",
+      "30XA"
+    ],
+    "typical_replacement_interval_years": 8,
+    "list_price_usd": 740,
+    "content": "electronic expansion valve EXV repair superheat control refrigerant circuit",
+    "tags": [
+      "EXV",
+      "expansion_valve",
+      "superheat",
+      "refrigerant_circuit"
+    ],
+    "lead_time_days": 4
+  },
+  {
+    "part_id": "PART-011",
+    "part_number": "30RB-VFD-UPGRADE",
+    "description": "Variable frequency drive (VFD) fan motor upgrade kit — reduces fan energy 18-25% at part load. Retrofit for 30RB units installed before 2022.",
+    "category": "upgrade",
+    "compatible_model_families": [
+      "30RB"
+    ],
+    "typical_replacement_interval_years": null,
+    "list_price_usd": 4800,
+    "content": "VFD variable frequency drive fan motor upgrade energy efficiency retrofit part load",
+    "tags": [
+      "VFD",
+      "fan_motor",
+      "upgrade",
+      "energy_efficiency",
+      "retrofit"
+    ],
+    "lead_time_days": 14
+  },
+  {
+    "part_id": "PART-012",
+    "part_number": "CTRL-OPTIVIEW-UPGRADE",
+    "description": "OptiView XE control panel upgrade — modern touch UI with remote diagnostics, energy dashboarding, and predictive alerts. Compatible with 30XA, 30RB, 19XR.",
+    "category": "upgrade",
+    "compatible_model_families": [
+      "30XA",
+      "30RB",
+      "19XR"
+    ],
+    "typical_replacement_interval_years": null,
+    "list_price_usd": 7200,
+    "content": "OptiView XE controls upgrade modern touchscreen remote diagnostics energy dashboard predictive alerts",
+    "tags": [
+      "controls",
+      "OptiView",
+      "touchscreen",
+      "remote_diagnostics",
+      "upgrade"
+    ],
+    "lead_time_days": 21
+  },
+  {
+    "part_id": "PART-013",
+    "part_number": "30XA-HEATEX-ENHANCED",
+    "description": "Enhanced heat exchanger tube bundle — micro-grooved tubes improve heat transfer efficiency by 12% vs standard. Ideal for units showing high approach delta.",
+    "category": "upgrade",
+    "compatible_model_families": [
+      "30XA",
+      "30RB"
+    ],
+    "typical_replacement_interval_years": null,
+    "list_price_usd": 11500,
+    "content": "heat exchanger enhanced tube bundle micro-grooved heat transfer efficiency improvement approach delta upgrade",
+    "tags": [
+      "heat_exchanger",
+      "tube_bundle",
+      "efficiency_upgrade",
+      "approach_temp"
+    ],
+    "lead_time_days": 30
+  },
+  {
+    "part_id": "PART-014",
+    "part_number": "19XR-IMPELLER-HI-EFF",
+    "description": "High-efficiency impeller set for 19XR centrifugal — factory-tuned for current refrigerant blend. Recovers 5-8% efficiency loss on units installed before 2022.",
+    "category": "upgrade",
+    "compatible_model_families": [
+      "19XR"
+    ],
+    "typical_replacement_interval_years": null,
+    "list_price_usd": 15800,
+    "content": "impeller high efficiency centrifugal upgrade efficiency recovery refrigerant blend 19XR",
+    "tags": [
+      "impeller",
+      "centrifugal",
+      "efficiency_upgrade",
+      "refrigerant"
+    ],
+    "lead_time_days": 45
+  },
+  {
+    "part_id": "PART-015",
+    "part_number": "CONN-REMOTELINK-KIT",
+    "description": "RemoteLink IoT gateway kit — adds remote monitoring, alarm notifications, and performance trending to any chiller with legacy controls.",
+    "category": "upgrade",
+    "compatible_model_families": [
+      "30RB",
+      "30XA",
+      "19XR"
+    ],
+    "typical_replacement_interval_years": null,
+    "list_price_usd": 2400,
+    "content": "IoT gateway remote monitoring alarm notifications performance trending legacy controls connectivity",
+    "tags": [
+      "IoT",
+      "remote_monitoring",
+      "connectivity",
+      "upgrade"
+    ],
+    "lead_time_days": 5
+  },
+  {
+    "part_id": "PART-016",
+    "part_number": "30XA-BELT-SET",
+    "description": "Condenser fan belt set (4-pack) — 30XA AquaForce, inspect every 12 months, replace at first sign of wear",
+    "category": "maintenance",
+    "compatible_model_families": [
+      "30XA"
+    ],
+    "typical_replacement_interval_years": 2,
+    "list_price_usd": 140,
+    "content": "condenser fan belt set annual inspection replacement 30XA AquaForce",
+    "tags": [
+      "belt",
+      "fan",
+      "maintenance",
+      "inspection"
+    ],
+    "lead_time_days": 2
+  },
+  {
+    "part_id": "PART-017",
+    "part_number": "19XR-TUBE-BRUSH-KIT",
+    "description": "Condenser tube brush cleaning kit — 19XR water-cooled. Removes scale and biofilm for restoring approach temperature delta.",
+    "category": "maintenance",
+    "compatible_model_families": [
+      "19XR"
+    ],
+    "typical_replacement_interval_years": 1,
+    "list_price_usd": 310,
+    "content": "tube brush cleaning kit water cooled condenser scale biofilm approach temperature delta 19XR",
+    "tags": [
+      "tube_brush",
+      "condenser",
+      "water_cooled",
+      "scale",
+      "approach_temp"
+    ],
+    "lead_time_days": 2
+  },
+  {
+    "part_id": "PART-018",
+    "part_number": "30RB-CONTACTOR-KIT",
+    "description": "Compressor contactor and overload relay kit — 30RB dual-circuit. Replace at 40,000 hour intervals or following any electrical fault.",
+    "category": "repair",
+    "compatible_model_families": [
+      "30RB"
+    ],
+    "typical_replacement_interval_years": 7,
+    "list_price_usd": 480,
+    "content": "compressor contactor overload relay electrical fault 30RB dual circuit replacement",
+    "tags": [
+      "contactor",
+      "overload_relay",
+      "electrical",
+      "repair"
+    ],
+    "lead_time_days": 3
+  }
+]

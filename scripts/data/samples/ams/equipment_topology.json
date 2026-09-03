@@ -1,0 +1,521 @@
+[
+  {
+    "equipment_id": "CH-ATL-001",
+    "parent_equipment_id": null,
+    "equipment_type": "chiller",
+    "label": "CH-ATL-001 (30RB-250)",
+    "model": "30RB-250",
+    "associated_parts": [
+      "PART-001",
+      "PART-002"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-CIRC-A",
+    "parent_equipment_id": "CH-ATL-001",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit A",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-COMP-A",
+    "parent_equipment_id": "CH-ATL-001-CIRC-A",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor A",
+    "model": "30RB Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-008",
+      "PART-018",
+      "PART-005"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-EVAP-A",
+    "parent_equipment_id": "CH-ATL-001-CIRC-A",
+    "equipment_type": "evaporator",
+    "label": "Evaporator A",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-COND-A",
+    "parent_equipment_id": "CH-ATL-001-CIRC-A",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser A",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-CIRC-B",
+    "parent_equipment_id": "CH-ATL-001",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit B",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-COMP-B",
+    "parent_equipment_id": "CH-ATL-001-CIRC-B",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor B",
+    "model": "30RB Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-008",
+      "PART-018",
+      "PART-005"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-EVAP-B",
+    "parent_equipment_id": "CH-ATL-001-CIRC-B",
+    "equipment_type": "evaporator",
+    "label": "Evaporator B",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-COND-B",
+    "parent_equipment_id": "CH-ATL-001-CIRC-B",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser B",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-001-CTRL",
+    "parent_equipment_id": "CH-ATL-001",
+    "equipment_type": "controls",
+    "label": "Control Panel",
+    "model": "Touch Pilot / NetCtrl",
+    "associated_parts": [
+      "PART-012",
+      "PART-015"
+    ]
+  },
+  {
+    "equipment_id": "CH-DAL-002",
+    "parent_equipment_id": null,
+    "equipment_type": "chiller",
+    "label": "CH-DAL-002 (19XR-500)",
+    "model": "19XR-500",
+    "associated_parts": [
+      "PART-003",
+      "PART-017"
+    ]
+  },
+  {
+    "equipment_id": "CH-DAL-002-CIRC-A",
+    "parent_equipment_id": "CH-DAL-002",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit A",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-DAL-002-COMP-A",
+    "parent_equipment_id": "CH-DAL-002-CIRC-A",
+    "equipment_type": "centrifugal_compressor",
+    "label": "Compressor A",
+    "model": "Evergreen Centrifugal",
+    "associated_parts": [
+      "PART-009",
+      "PART-003"
+    ]
+  },
+  {
+    "equipment_id": "CH-DAL-002-EVAP-A",
+    "parent_equipment_id": "CH-DAL-002-CIRC-A",
+    "equipment_type": "evaporator",
+    "label": "Evaporator A",
+    "model": null,
+    "associated_parts": [
+      "PART-017",
+      "PART-013"
+    ]
+  },
+  {
+    "equipment_id": "CH-DAL-002-COND-A",
+    "parent_equipment_id": "CH-DAL-002-CIRC-A",
+    "equipment_type": "water_cooled_condenser",
+    "label": "Condenser A",
+    "model": null,
+    "associated_parts": [
+      "PART-017",
+      "PART-009",
+      "PART-013"
+    ]
+  },
+  {
+    "equipment_id": "CH-DAL-002-CTRL",
+    "parent_equipment_id": "CH-DAL-002",
+    "equipment_type": "controls",
+    "label": "Control Panel",
+    "model": "ICVC v4.8.3",
+    "associated_parts": [
+      "PART-012",
+      "PART-015"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003",
+    "parent_equipment_id": null,
+    "equipment_type": "chiller",
+    "label": "CH-ATL-003 (30XA080)",
+    "model": "30XA080",
+    "associated_parts": [
+      "PART-001",
+      "PART-002"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-CIRC-A",
+    "parent_equipment_id": "CH-ATL-003",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit A",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-COMP-A",
+    "parent_equipment_id": "CH-ATL-003-CIRC-A",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor A",
+    "model": "30XA Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-007",
+      "PART-008"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-EVAP-A",
+    "parent_equipment_id": "CH-ATL-003-CIRC-A",
+    "equipment_type": "evaporator",
+    "label": "Evaporator A",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-COND-A",
+    "parent_equipment_id": "CH-ATL-003-CIRC-A",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser A",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-CIRC-B",
+    "parent_equipment_id": "CH-ATL-003",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit B",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-COMP-B",
+    "parent_equipment_id": "CH-ATL-003-CIRC-B",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor B",
+    "model": "30XA Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-007",
+      "PART-008"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-EVAP-B",
+    "parent_equipment_id": "CH-ATL-003-CIRC-B",
+    "equipment_type": "evaporator",
+    "label": "Evaporator B",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-COND-B",
+    "parent_equipment_id": "CH-ATL-003-CIRC-B",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser B",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-ATL-003-CTRL",
+    "parent_equipment_id": "CH-ATL-003",
+    "equipment_type": "controls",
+    "label": "Control Panel",
+    "model": "Touch Pilot / NetCtrl",
+    "associated_parts": [
+      "PART-012",
+      "PART-015"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004",
+    "parent_equipment_id": null,
+    "equipment_type": "chiller",
+    "label": "CH-CHI-004 (30XA120)",
+    "model": "30XA120",
+    "associated_parts": [
+      "PART-001",
+      "PART-002"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-CIRC-A",
+    "parent_equipment_id": "CH-CHI-004",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit A",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-COMP-A",
+    "parent_equipment_id": "CH-CHI-004-CIRC-A",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor A",
+    "model": "30XA Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-007",
+      "PART-008"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-EVAP-A",
+    "parent_equipment_id": "CH-CHI-004-CIRC-A",
+    "equipment_type": "evaporator",
+    "label": "Evaporator A",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-COND-A",
+    "parent_equipment_id": "CH-CHI-004-CIRC-A",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser A",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-CIRC-B",
+    "parent_equipment_id": "CH-CHI-004",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit B",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-COMP-B",
+    "parent_equipment_id": "CH-CHI-004-CIRC-B",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor B",
+    "model": "30XA Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-007",
+      "PART-008"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-EVAP-B",
+    "parent_equipment_id": "CH-CHI-004-CIRC-B",
+    "equipment_type": "evaporator",
+    "label": "Evaporator B",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-COND-B",
+    "parent_equipment_id": "CH-CHI-004-CIRC-B",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser B",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-CHI-004-CTRL",
+    "parent_equipment_id": "CH-CHI-004",
+    "equipment_type": "controls",
+    "label": "Control Panel",
+    "model": "Touch Pilot / NetCtrl",
+    "associated_parts": [
+      "PART-012",
+      "PART-015"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005",
+    "parent_equipment_id": null,
+    "equipment_type": "chiller",
+    "label": "CH-PHX-005 (30RB-400)",
+    "model": "30RB-400",
+    "associated_parts": [
+      "PART-001",
+      "PART-002"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-CIRC-A",
+    "parent_equipment_id": "CH-PHX-005",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit A",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-COMP-A",
+    "parent_equipment_id": "CH-PHX-005-CIRC-A",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor A",
+    "model": "30RB Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-008",
+      "PART-018",
+      "PART-005"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-EVAP-A",
+    "parent_equipment_id": "CH-PHX-005-CIRC-A",
+    "equipment_type": "evaporator",
+    "label": "Evaporator A",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-COND-A",
+    "parent_equipment_id": "CH-PHX-005-CIRC-A",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser A",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-CIRC-B",
+    "parent_equipment_id": "CH-PHX-005",
+    "equipment_type": "refrigerant_circuit",
+    "label": "Circuit B",
+    "model": null,
+    "associated_parts": [
+      "PART-002",
+      "PART-010"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-COMP-B",
+    "parent_equipment_id": "CH-PHX-005-CIRC-B",
+    "equipment_type": "scroll_compressor",
+    "label": "Compressor B",
+    "model": "30RB Scroll",
+    "associated_parts": [
+      "PART-006",
+      "PART-008",
+      "PART-018",
+      "PART-005"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-EVAP-B",
+    "parent_equipment_id": "CH-PHX-005-CIRC-B",
+    "equipment_type": "evaporator",
+    "label": "Evaporator B",
+    "model": null,
+    "associated_parts": [
+      "PART-004"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-COND-B",
+    "parent_equipment_id": "CH-PHX-005-CIRC-B",
+    "equipment_type": "air_cooled_condenser",
+    "label": "Condenser B",
+    "model": null,
+    "associated_parts": [
+      "PART-001",
+      "PART-004",
+      "PART-016"
+    ]
+  },
+  {
+    "equipment_id": "CH-PHX-005-CTRL",
+    "parent_equipment_id": "CH-PHX-005",
+    "equipment_type": "controls",
+    "label": "Control Panel",
+    "model": "Touch Pilot / NetCtrl",
+    "associated_parts": [
+      "PART-012",
+      "PART-015"
+    ]
+  }
+]
