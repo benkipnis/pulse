@@ -1,27 +1,28 @@
 # Agent Instructions — PULSE
 
-This repository is a **runnable dual-demo platform**: one MCP server, two LLM agents, two React UIs, and a shared MongoDB Atlas database. It is not a generic toolkit.
+This repository is a **runnable platform**: one MCP server, two LLM agents, one unified React UI, and a shared MongoDB Atlas database. It is not a generic toolkit.
 
 ## What's here
 
-| Demo | Port | Description |
-|------|------|-------------|
-| **Virtual Engineer** | `:5173` | AI-assisted chiller diagnostics for field service engineers |
-| **Aftermarket Sales Intelligence** | `:5174` | Proactive sales opportunity identification from fleet telemetry patterns |
+| Use Case | UI Section | Port | Description |
+|----------|------------|------|-------------|
+| **Virtual Engineer** | VE section | `:5174` | AI-assisted chiller diagnostics for field service engineers |
+| **Aftermarket Sales Intelligence** | AMS section | `:5174` | Proactive sales opportunity identification from fleet telemetry patterns |
+| **Platform** | Platform tab | `:5174` | Architecture story — shared DB, shared MCP, extensibility |
 
-Both demos share the **same backend on `:3100`** (36 MCP tools) and the **same `virtual_engineer` database**.
+All sections share the **same backend on `:3100`** (36 MCP tools) and the **same `virtual_engineer` database**. The UI lives entirely in `frontend-ams/`.
 
 ## Repository layout
 
 | Path | Purpose |
 |------|---------|
 | `backend/src/` | Express server — MCP tools, LLM agents, SSE chat APIs |
-| `backend/src/mcp/createServer.js` | 36 MCP tool definitions (20 VE + 16 AMS) |
+| `backend/src/mcp/createServer.js` | 36 MCP tool definitions (6 shared + 14 VE + 16 AMS) |
 | `backend/src/agent/orchestrator.js` | VE diagnostic agent |
 | `backend/src/agent/sales-orchestrator.js` | Sales intelligence agent |
 | `backend/src/repositories/` | MongoDB data access layer |
-| `frontend/src/` | Virtual Engineer UI — Overview, Evidence Board, Field Chat |
-| `frontend-ams/src/` | Sales Intelligence UI — Fleet Intelligence, Opportunity Builder, Pipeline |
+| `backend/src/lib/searchIndexes.js` | Centralized Atlas Search index definitions (auto-created on startup) |
+| `frontend-ams/src/` | PULSE UI — VE section, AMS section, Platform tab |
 | `scripts/data/` | Sample data, schemas, seed scripts |
 | `scripts/data/samples/ams/` | AMS-only sample JSON files |
 | `tests/connectivity/` | MCP smoke tests |
@@ -36,10 +37,9 @@ Both demos share the **same backend on `:3100`** (36 MCP tools) and the **same `
 ### Run and test
 
 ```bash
-npm run dev                    # starts backend :3100 + VE UI :5173 + AMS UI :5174
+npm run dev                    # starts backend :3100 + PULSE UI :5174
 npm run mcp:dev                # backend only
-npm run dev:ve                 # VE frontend only (requires backend)
-npm run dev:ams                # AMS frontend only (requires backend)
+npm run dev:pulse              # PULSE UI only (requires backend)
 npm run test:connectivity      # requires backend running on :3100
 ```
 
@@ -56,8 +56,7 @@ Edit `scripts/data/samples/` (VE) or `scripts/data/samples/ams/` (AMS), then `np
 
 ### UI changes
 
-- **VE UI:** single-page multi-tab layout in `frontend/src/`. Tabs share `ChatContext` SSE events.
-- **AMS UI:** single-page multi-tab layout in `frontend-ams/src/`. Tabs share `SalesContext` SSE events.
+The PULSE UI is a single-page multi-tab layout in `frontend-ams/src/`. It has two top-level sections (VE, AMS) and a Platform tab, all in one Vite app. VE tabs share `ChatContext` SSE events; AMS tabs share `SalesContext` SSE events.
 
 ## Design principles
 
@@ -66,6 +65,7 @@ Edit `scripts/data/samples/` (VE) or `scripts/data/samples/ams/` (AMS), then `np
 3. **Transparency** — surface `query_insight` (pattern, collection, pipeline) in the UI
 4. **No customer branding** — use generic OEM terminology in sample data and docs
 5. **Additive only** — AMS extensions never break VE demo behavior; all changes are backward compatible
+6. **Shared tools grow the platform** — reclassify foundational tools as shared when both agents can use them; this demonstrates that new agents require less custom tooling over time
 
 ## Compliance artifacts
 
