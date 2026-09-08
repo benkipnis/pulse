@@ -60,7 +60,15 @@ import {
   insightForTelemetryWindow,
 } from "../lib/queryInsight.js";
 
-export const MCP_TOOL_COUNT = 36; // 20 VE + 16 AMS
+export const MCP_TOOL_COUNT = 36; // 6 shared + 14 VE-only + 16 AMS-only
+// Shared (6): getChillerById, getSiteContext, getActiveAlarms, getAlarmHistory, getServiceHistory, getPartsHistory
+// VE-only (14): getChillerConfiguration, getAlarmDetails, getCurrentDeviceState, getTelemetry, getFaultEvents,
+//               searchManuals, searchTroubleshootingGuides, searchTechnicalBulletins, filterCases, searchCaseNotes,
+//               startTroubleshootingSession, storeRecommendationTrace, captureEngineerReaction, captureResolutionOutcome
+// AMS-only (16): getCustomerFleet, getServiceContractStatus, getUnitEfficiencyTrend, getApproachTempTrend,
+//                scanForPreFaultPatterns, getFleetAlarmSummary, getFleetCohortAnalysis, getConnectedEquipmentGraph,
+//                getRelatedPartsBundle, searchPartsCatalog, searchServiceOfferings, createSalesOpportunity,
+//                listOpenOpportunities, captureRepReaction, startSalesSession, storeSalesRecommendationTrace
 
 async function tryKnowledgeSearch(query, type, filters) {
   const intendedRerank = rerankInsightMeta();

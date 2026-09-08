@@ -312,14 +312,18 @@ async function main() {
     await client.connect();
     const db = client.db(DB_NAME);
     console.log(`Connected to database: ${DB_NAME}`);
-    console.log(`Mode: ${DROP ? "--drop (full re-seed)" : "upsert (additive)"}\n`);
+    console.log(`Mode: ${DROP ? "--drop (full re-seed, preserves indexes)" : "upsert (additive)"}\n`);
 
     if (DROP) {
+      // Use deleteMany instead of drop() so that Atlas Search indexes and
+      // time-series collection configuration are preserved across re-seeds.
+      // drop() destroys the collection object entirely, wiping all Atlas Search
+      // index definitions which then have to rebuild from scratch on Atlas.
       for (const name of [...VE_COLLECTIONS, ...AMS_COLLECTIONS]) {
         const exists = await db.listCollections({ name }).toArray();
         if (exists.length > 0) {
-          await db.collection(name).drop();
-          console.log(`Dropped: ${name}`);
+          await db.collection(name).deleteMany({});
+          console.log(`Cleared: ${name}`);
         }
       }
     }

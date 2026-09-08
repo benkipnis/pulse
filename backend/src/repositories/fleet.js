@@ -30,7 +30,7 @@ export async function getCustomerFleet({ customerId, siteId } = {}) {
           as: "site",
         },
       },
-      { $unwind: { path: "$site", preserveNullAndEmpty: true } },
+      { $unwind: { path: "$site", preserveNullAndEmptyArrays: true } },
       {
         $project: {
           _id: 0,
@@ -65,7 +65,7 @@ export async function getCustomerFleet({ customerId, siteId } = {}) {
  */
 export async function getUnitEfficiencyTrend({ chillerId, lookbackDays = 90 }) {
   const db = await getDb();
-  const startTime = new Date(Date.now() - lookbackDays * 86400_000).toISOString();
+  const startTime = new Date(Date.now() - lookbackDays * 86400_000);
 
   const docs = await db
     .collection("telemetry")
@@ -81,7 +81,7 @@ export async function getUnitEfficiencyTrend({ chillerId, lookbackDays = 90 }) {
       { $sort: { timestamp: 1 } },
       {
         $addFields: {
-          ts: { $dateFromString: { dateString: "$timestamp" } },
+          ts: "$timestamp",
           efficiency_kwpton: {
             $divide: ["$readings.power_kw", "$readings.cooling_tons"],
           },
@@ -135,7 +135,7 @@ export async function getUnitEfficiencyTrend({ chillerId, lookbackDays = 90 }) {
  */
 export async function getApproachTempTrend({ chillerId, lookbackDays = 90 }) {
   const db = await getDb();
-  const startTime = new Date(Date.now() - lookbackDays * 86400_000).toISOString();
+  const startTime = new Date(Date.now() - lookbackDays * 86400_000);
 
   const docs = await db
     .collection("telemetry")
@@ -151,7 +151,7 @@ export async function getApproachTempTrend({ chillerId, lookbackDays = 90 }) {
       { $sort: { timestamp: 1 } },
       {
         $addFields: {
-          ts: { $dateFromString: { dateString: "$timestamp" } },
+          ts: "$timestamp",
           approach_delta_f: {
             $subtract: [
               "$readings.saturated_condensing_temp_f",
@@ -216,7 +216,7 @@ export async function getApproachTempTrend({ chillerId, lookbackDays = 90 }) {
  */
 export async function scanForPreFaultPatterns({ chillerId, lookbackDays = 60 }) {
   const db = await getDb();
-  const startTime = new Date(Date.now() - lookbackDays * 86400_000).toISOString();
+  const startTime = new Date(Date.now() - lookbackDays * 86400_000);
 
   const matchFilter = { timestamp: { $gte: startTime } };
   if (chillerId) matchFilter.chiller_id = chillerId;
@@ -228,7 +228,7 @@ export async function scanForPreFaultPatterns({ chillerId, lookbackDays = 60 }) 
       { $sort: { chiller_id: 1, timestamp: 1 } },
       {
         $addFields: {
-          ts: { $dateFromString: { dateString: "$timestamp" } },
+          ts: "$timestamp",
         },
       },
       {
@@ -316,7 +316,7 @@ export async function getFleetCohortAnalysis({ chillerId }) {
   const installYear = unit.install_date ? parseInt(unit.install_date.slice(0, 4)) : null;
 
   // Get efficiency stats per unit over last 30 days
-  const thirtyDaysAgo = new Date(Date.now() - 30 * 86400_000).toISOString();
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 86400_000);
   const efficiencyStats = await db
     .collection("telemetry")
     .aggregate([
@@ -392,7 +392,7 @@ export async function getFleetCohortAnalysis({ chillerId }) {
  */
 export async function getFleetAlarmSummary({ customerId, lookbackDays = 30 }) {
   const db = await getDb();
-  const startTime = new Date(Date.now() - lookbackDays * 86400_000).toISOString();
+  const startTime = new Date(Date.now() - lookbackDays * 86400_000);
 
   // Get all chiller_ids for this customer
   const chillerIds = (
@@ -410,14 +410,14 @@ export async function getFleetAlarmSummary({ customerId, lookbackDays = 30 }) {
       {
         $match: {
           chiller_id: { $in: chillerIds },
-          triggered_at: { $gte: startTime },
+          raised_at: { $gte: startTime },
         },
       },
       {
         $group: {
           _id: { chiller_id: "$chiller_id", severity: "$severity" },
           count: { $sum: 1 },
-          latest: { $max: "$triggered_at" },
+          latest: { $max: "$raised_at" },
           alarm_codes: { $addToSet: "$alarm_code" },
         },
       },
@@ -476,7 +476,7 @@ export async function getServiceContractStatus({ chillerId, customerId }) {
           as: "site",
         },
       },
-      { $unwind: { path: "$site", preserveNullAndEmpty: true } },
+      { $unwind: { path: "$site", preserveNullAndEmptyArrays: true } },
       {
         $addFields: {
           contract_status: {

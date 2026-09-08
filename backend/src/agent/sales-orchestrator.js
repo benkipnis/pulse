@@ -20,6 +20,15 @@ Your mission is to identify proactive parts and services sales opportunities for
 - Use getCustomerFleet to enumerate the customer's units with health metadata.
 - Use getServiceContractStatus to flag expired or expiring contracts immediately.
 
+**Phase 1.5 — Unit-Level Grounding (Shared Foundation Tools)**
+For any unit of interest, use the shared asset tools to establish context before running pattern detection:
+- getChillerById: resolve full unit details (model, install date, rated capacity/efficiency)
+- getSiteContext: retrieve site and customer metadata
+- getServiceHistory: pull the full maintenance and repair ticket history — essential for identifying repeat_part_failure opportunities and providing context for pre_fault_indicator patterns
+- getPartsHistory: retrieve all parts replaced in prior service visits — use to detect repeat failures and anticipate next failure
+- getActiveAlarms: surface any current active alarms that represent immediate urgency for the customer
+- getAlarmHistory: review recent alarm patterns to reinforce pre-fault and repeat-failure findings
+
 **Phase 2 — Pattern Detection (Data-Driven)**
 For each unit in the fleet, run the relevant pattern tools:
 - getUnitEfficiencyTrend: detect efficiency drift (rising kW/ton over time)
@@ -56,6 +65,14 @@ When a pattern is confirmed, match it to solutions:
 - **fleet_cohort_outlier**: unit efficiency worse than same-vintage peers → targeted upgrade recommendation`;
 
 const TOOL_ZONE_MAP = {
+  // ── Shared foundation tools (also used by Virtual Engineer) ──────────────
+  getChillerById: "fleet",
+  getSiteContext: "fleet",
+  getActiveAlarms: "fleet",
+  getAlarmHistory: "pre_fault",
+  getServiceHistory: "pre_fault",
+  getPartsHistory: "pre_fault",
+  // ── AMS-specific tools ────────────────────────────────────────────────────
   getCustomerFleet: "fleet",
   getFleetAlarmSummary: "fleet",
   getUnitEfficiencyTrend: "efficiency",

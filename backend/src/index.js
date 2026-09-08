@@ -4,9 +4,10 @@ import { createMcpExpressApp } from "@modelcontextprotocol/sdk/server/express.js
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
 import { env } from "./config/env.js";
-import { closeDb, pingDb } from "./db/client.js";
+import { closeDb, getDb, pingDb } from "./db/client.js";
 import { createMcpServer, MCP_TOOL_COUNT } from "./mcp/createServer.js";
 import { ensureSessionIndexes } from "./repositories/sessions.js";
+import { ensureSearchIndexes } from "./lib/searchIndexes.js";
 import chatRouter from "./api/chat.js";
 import salesChatRouter from "./api/sales-chat.js";
 
@@ -146,6 +147,9 @@ const httpServer = app.listen(env.mcpPort, env.mcpHost, async () => {
   try {
     await pingDb();
     await ensureSessionIndexes();
+    const db = await getDb();
+    console.log("  Checking search indexes (VE + AMS)...");
+    await ensureSearchIndexes(db);
     console.log(`Virtual Engineer server listening on http://${env.mcpHost}:${env.mcpPort}`);
     console.log(`  MCP endpoint: POST/GET/DELETE http://localhost:${env.mcpPort}/mcp`);
     console.log(`  Chat API:     POST http://localhost:${env.mcpPort}/api/chat`);

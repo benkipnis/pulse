@@ -10,15 +10,15 @@
 import { getDb } from "../db/client.js";
 
 /**
- * Hybrid search over parts_catalog.
- * Falls back to basic text regex if Atlas Search is not configured.
+ * Hybrid search over parts_catalog using Atlas Full-Text Search.
+ * When the Atlas Search index is unavailable (building or missing), falls back
+ * to an indexed find on category + compatible_model_families.
  */
 export async function searchPartsCatalog({ query, category, modelFamily, limit = 10 }) {
   const db = await getDb();
 
   const pipeline = [];
 
-  // Try Atlas Search hybrid if vector index exists, otherwise basic match
   try {
     pipeline.push({
       $search: {
@@ -39,7 +39,7 @@ export async function searchPartsCatalog({ query, category, modelFamily, limit =
                 filter: [
                   ...(category ? [{ equals: { path: "category", value: category } }] : []),
                   ...(modelFamily
-                    ? [{ text: { query: modelFamily, path: "compatible_model_families" } }]
+                    ? [{ equals: { path: "compatible_model_families", value: modelFamily } }]
                     : []),
                 ],
               }
@@ -68,30 +68,27 @@ export async function searchPartsCatalog({ query, category, modelFamily, limit =
     const results = await db.collection("parts_catalog").aggregate(pipeline).toArray();
     return { results, search_type: "atlas_search" };
   } catch {
-    // Fallback: basic regex
+    // Atlas Search index not yet ready — fall back to an indexed find on category.
+    // This uses the seeded { category: 1 } index and is not a full-text search,
+    // but returns correctly scoped results until the index builds.
     const filter = {};
     if (category) filter.category = category;
     if (modelFamily) filter.compatible_model_families = modelFamily;
-
     const results = await db
       .collection("parts_catalog")
-      .find({
-        ...filter,
-        $or: [
-          { description: { $regex: query, $options: "i" } },
-          { tags: { $regex: query, $options: "i" } },
-        ],
-      })
+      .find(filter)
       .limit(limit)
       .project({ _id: 0 })
       .toArray();
-
-    return { results, search_type: "regex_fallback" };
+    return { results, search_type: "index_fallback" };
   }
 }
 
 /**
- * Hybrid search over service_offerings.
+ * Hybrid search over service_offerings using Atlas Full-Text Search.
+ * When the Atlas Search index is unavailable (building or missing), falls back
+ * to an indexed find on triggers + category. This uses the seeded { triggers: 1 }
+ * index and returns correctly scoped results until the Atlas index builds.
  */
 export async function searchServiceOfferings({ query, category, modelFamily, trigger, limit = 10 }) {
   const db = await getDb();
@@ -119,7 +116,7 @@ export async function searchServiceOfferings({ query, category, modelFamily, tri
                       ? [{ equals: { path: "category", value: category } }]
                       : []),
                     ...(trigger
-                      ? [{ text: { query: trigger, path: "triggers" } }]
+                      ? [{ equals: { path: "triggers", value: trigger } }]
                       : []),
                   ],
                 }
@@ -147,23 +144,17 @@ export async function searchServiceOfferings({ query, category, modelFamily, tri
     const results = await db.collection("service_offerings").aggregate(pipeline).toArray();
     return { results, search_type: "atlas_search" };
   } catch {
+    // Atlas Search index not yet ready — fall back to an indexed find on triggers.
+    // Uses the seeded { triggers: 1 } index — exact match, no regex.
     const filter = {};
     if (category) filter.category = category;
     if (trigger) filter.triggers = trigger;
-
     const results = await db
       .collection("service_offerings")
-      .find({
-        ...filter,
-        $or: [
-          { name: { $regex: query, $options: "i" } },
-          { description: { $regex: query, $options: "i" } },
-        ],
-      })
+      .find(filter)
       .limit(limit)
       .project({ _id: 0 })
       .toArray();
-
-    return { results, search_type: "regex_fallback" };
+    return { results, search_type: "index_fallback" };
   }
 }

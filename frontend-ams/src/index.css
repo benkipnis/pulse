@@ -347,11 +347,26 @@ input, textarea, select { font-family: inherit; }
   background: var(--mongo-light);
   border: 1px solid var(--mongo-border);
   border-radius: 14px;
-  padding: 3px 10px;
+  padding: 4px 12px;
   font-size: 0.8rem;
   color: var(--mongo-gray);
   font-weight: 500;
   transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  line-height: 1.2;
+}
+
+.scenario-label {
+  font-weight: 600;
+}
+
+.scenario-sub {
+  font-size: 0.68rem;
+  opacity: 0.7;
+  font-weight: 400;
 }
 
 .scenario-btn:hover, .scenario-btn.active {
@@ -590,7 +605,640 @@ input, textarea, select { font-family: inherit; }
 
 .xray-insight code { color: #a5d6ff; }
 
-/* ─── Pipeline / Opportunities ─────────────────────────────────────────── */
+/* ─── Sales Flow Timeline ──────────────────────────────────────────────── */
+
+.sft-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sft-empty {
+  background: var(--mongo-white);
+  border: 1px dashed var(--mongo-border);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--mongo-gray);
+  font-size: 0.88rem;
+}
+
+.sft-round {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sft-round-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--mongo-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0 0.1rem;
+}
+
+.sft-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sft-card {
+  background: var(--mongo-white);
+  border: 1.5px solid var(--mongo-border);
+  border-radius: 7px;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: border-color 0.12s, box-shadow 0.12s;
+  cursor: pointer;
+  width: 100%;
+}
+
+.sft-card:hover {
+  border-color: var(--mongo-green-dark);
+}
+
+.sft-card.selected {
+  border-color: var(--mongo-green-dark);
+  box-shadow: 0 0 0 2px rgba(0, 104, 74, 0.15);
+  background: #f0faf6;
+}
+
+.sft-card.in-flight {
+  border-color: #e65100;
+  animation: sft-pulse 1.4s ease-in-out infinite;
+}
+
+.sft-card.degraded {
+  border-color: #e6a817;
+  background: #fffbf0;
+}
+
+@keyframes sft-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+.sft-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.sft-tool-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mongo-slate);
+  font-family: monospace;
+}
+
+.sft-card-bottom {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sft-latency {
+  font-size: 0.72rem;
+  color: var(--mongo-green-dark);
+  font-family: monospace;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sft-spinner {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #e65100;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: sft-spin 0.7s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes sft-spin {
+  to { transform: rotate(360deg); }
+}
+
+.sft-degraded-badge {
+  font-size: 0.7rem;
+  background: #fff3e0;
+  color: #e65100;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-weight: 600;
+}
+
+.sft-result-summary {
+  font-size: 0.75rem;
+  color: var(--mongo-gray);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.sft-no-result {
+  font-size: 0.75rem;
+  color: var(--mongo-gray);
+  font-style: italic;
+}
+
+.sft-arrow {
+  font-size: 0.72rem;
+  color: var(--mongo-gray);
+  text-align: center;
+  padding: 0.15rem 0;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Sales Flow Timeline — Query Inspector ────────────────────────────── */
+
+.sft-inspector {
+  background: #0d1117;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+.sft-inspector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sft-inspector-tool {
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e6edf3;
+}
+
+.sft-inspector-close {
+  background: none;
+  border: none;
+  color: #7d8590;
+  font-size: 0.85rem;
+  padding: 0 0.25rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.sft-inspector-close:hover { color: #e6edf3; }
+
+.sft-inspector-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sft-inspector-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--mongo-green);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.sft-inspector-latency {
+  color: var(--mongo-green);
+  font-weight: 600;
+}
+
+.sft-inspector-query {
+  font-size: 0.8rem;
+  color: #adbac7;
+  line-height: 1.5;
+}
+
+.sft-inspector-query code {
+  color: #a5d6ff;
+  font-size: 0.78rem;
+}
+
+.sft-inspector-op {
+  font-weight: 700;
+  color: #e6edf3;
+  font-family: monospace;
+}
+
+.sft-inspector-index {
+  color: #7d8590;
+  font-size: 0.78rem;
+}
+
+.sft-inspector-note {
+  color: #7d8590;
+  font-size: 0.77rem;
+  margin-top: 0.15rem;
+}
+
+.sft-inspector-pre {
+  background: #161b22;
+  border-radius: 5px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.75rem;
+  color: #adbac7;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+.sft-inspector-result {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* ─── Section Navigation (PULSE top-level) ─────────────────────────────── */
+
+.section-nav {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.section-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.section-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.section-btn.active {
+  background: var(--mongo-green);
+  color: var(--mongo-forest);
+  border-color: var(--mongo-green);
+  font-weight: 700;
+}
+
+/* ─── Pattern Badges (VE) ───────────────────────────────────────────────── */
+
+.pattern-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.pattern-exact_find        { background: #e3f2fd; color: #1565c0; }
+.pattern-aggregation_lookup { background: #f3e5f5; color: #7b1fa2; }
+.pattern-time_series_window { background: #e8f5e9; color: #2e7d32; }
+.pattern-vector_search     { background: #fff3e0; color: #e65100; }
+.pattern-atlas_search      { background: #fce4ec; color: #c62828; }
+.pattern-hybrid_search     { background: #fff8e1; color: #f57f17; }
+.pattern-voyage_rerank     { background: #e8faf0; color: #00684a; }
+.pattern-write             { background: #e0f2f1; color: #00695c; }
+.pattern-not_configured    { background: #ffebee; color: #b71c1c; }
+
+.pattern-summary {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+/* ─── Rank Fusion Legs ──────────────────────────────────────────────────── */
+
+.rank-fusion-legs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.rank-fusion-leg {
+  font-size: 0.7rem;
+  font-family: "SF Mono", "Fira Code", monospace;
+  background: #fff8e1;
+  color: #f57f17;
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
+/* ─── Query Inspector (VE dark code block) ──────────────────────────────── */
+
+.query-inspector {
+  background: var(--mongo-forest);
+  color: #c8e6c9;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.75rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.query-inspector-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.query-inspector-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mongo-slate);
+}
+
+.query-inspector-meta {
+  font-size: 0.8rem;
+  color: var(--mongo-gray);
+}
+
+.query-inspector-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 1100px) {
+  .query-inspector-columns { grid-template-columns: 1fr; }
+}
+
+.query-inspector-col-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mongo-gray);
+  margin-bottom: 0.35rem;
+}
+
+.query-result-inspector {
+  background: var(--mongo-light);
+  border: 1px solid var(--mongo-border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.75rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 240px;
+  overflow-y: auto;
+  color: var(--mongo-slate);
+  margin: 0;
+}
+
+/* ─── Agent Flow Timeline (VE) ──────────────────────────────────────────── */
+
+.agent-flow-timeline { display: flex; flex-direction: column; gap: 0; }
+
+.agent-flow-empty {
+  color: var(--mongo-gray);
+  font-size: 0.85rem;
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+.agent-flow-round-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mongo-gray);
+  margin-bottom: 0.35rem;
+}
+
+.agent-flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.agent-flow-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  background: var(--mongo-white);
+  border: 1px solid var(--mongo-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  text-align: left;
+  min-width: 130px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.agent-flow-card:hover { border-color: var(--mongo-green-dark); }
+.agent-flow-card.selected {
+  border-color: var(--mongo-green-dark);
+  background: #e8faf0;
+  box-shadow: 0 0 0 2px rgba(0, 104, 74, 0.15);
+}
+.agent-flow-card.in-flight { border-style: dashed; opacity: 0.8; }
+.agent-flow-card.degraded { border-color: #ffb74d; background: #fff8e1; }
+
+.agent-flow-tool-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mongo-slate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.agent-flow-latency {
+  font-size: 0.7rem;
+  color: var(--mongo-gray);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.agent-flow-degraded-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #e65100;
+  background: #fff3e0;
+  border-radius: 3px;
+  padding: 0.1rem 0.35rem;
+}
+
+.agent-flow-spinner {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--mongo-border);
+  border-top-color: var(--mongo-green-dark);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.agent-flow-arrow {
+  font-size: 0.72rem;
+  color: var(--mongo-gray);
+  padding: 0.3rem 0;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ─── Evidence Board Grid (VE) ──────────────────────────────────────────── */
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.evidence-grid .span-2 { grid-column: span 2; }
+.evidence-grid .span-3 { grid-column: span 3; }
+
+.evidence-zone-card {
+  min-height: 120px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (max-width: 900px) {
+  .evidence-grid { grid-template-columns: 1fr; }
+  .evidence-grid .span-2, .evidence-grid .span-3 { grid-column: span 1; }
+}
+
+/* ─── Zone Active Pulse (VE) ────────────────────────────────────────────── */
+
+.zone-active {
+  border-color: var(--mongo-green) !important;
+  box-shadow: 0 0 0 2px rgba(0, 237, 100, 0.25);
+  animation: pulse-border 1.5s ease-in-out;
+}
+
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(0, 237, 100, 0.25); }
+  50%       { box-shadow: 0 0 0 4px rgba(0, 237, 100, 0.4); }
+}
+
+/* ─── X-ray Overlay (VE Field Chat) ────────────────────────────────────── */
+
+.xray-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 30, 43, 0.92);
+  z-index: 100;
+  overflow-y: auto;
+  padding: 2rem;
+  color: var(--mongo-white);
+}
+.xray-overlay h2 { margin: 0 0 1rem; color: var(--mongo-green); }
+
+.xray-timeline-item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.xray-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 101;
+  background: var(--mongo-green);
+  color: var(--mongo-forest);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+/* ─── Feedback Row (VE Field Chat) ─────────────────────────────────────── */
+
+.feedback-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.feedback-btn {
+  border: 1px solid var(--mongo-border);
+  background: var(--mongo-white);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+.feedback-btn:hover { background: var(--mongo-light); }
+
+/* ─── Card heading override for VE tabs ─────────────────────────────────── */
+
+.card {
+  background: var(--mongo-white);
+  border: 1px solid var(--mongo-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mongo-gray);
+}
+
+
+.pipeline-banner {
+  background: var(--mongo-light);
+  border: 1px solid var(--mongo-border);
+  border-left: 3px solid var(--mongo-green-dark);
+  border-radius: 6px;
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+  color: var(--mongo-gray);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.pipeline-banner code {
+  font-size: 0.78rem;
+  background: rgba(0,104,74,0.08);
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--mongo-green-dark);
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
 
 .pipeline-filters {
   display: flex;

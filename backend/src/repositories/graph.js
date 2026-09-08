@@ -142,7 +142,7 @@ export async function getRelatedPartsBundle({ equipmentId }) {
           as: "catalog",
         },
       },
-      { $unwind: { path: "$catalog", preserveNullAndEmpty: true } },
+      { $unwind: { path: "$catalog", preserveNullAndEmptyArrays: true } },
       {
         $project: {
           _id: 0,

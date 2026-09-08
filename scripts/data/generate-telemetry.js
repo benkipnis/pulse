@@ -7,7 +7,8 @@
  *   - 7-day hourly recent window (for real-time VE diagnostics)
  *   - New fields per reading: power_kw, cooling_tons, ambient_temp_f
  *   - Engineered trends per unit:
- *       CH-ATL-001: efficiency drift — power_kw creeping up +9% over 180 days
+ *       CH-ATL-001: efficiency drift — flat for first 90 days, ramps +20% in last 90 days
+ *                   produces ~9-10% measured drift_pct in the 90-day analysis window
  *       CH-CHI-004: pre-fault indicator — motor_winding_temp_f rising +18°F in last 90 days
  *       CH-DAL-002: condenser approach delta widening (high ambient in Dallas summer)
  *
@@ -104,6 +105,16 @@ function baseProfile(chiller) {
       "CH-ATL-003": 42150,
       "CH-CHI-004": 28440,
       "CH-PHX-005": 18200,
+      // New chillers — healthy baselines
+      "CH-ATL-002": 12800,  // 2023 install, newest Brookfield unit
+      "CH-ATL-007": 37400,  // 2020 install, Brookfield
+      "CH-DAL-003": 52200,  // 2019, same vintage as CH-DAL-002
+      "CH-DAL-004": 40600,  // 2020, Equinix
+      "CH-DAL-005": 23500,  // 2022, Equinix air-cooled
+      "CH-DAL-006": 63100,  // 2018, oldest Equinix unit
+      "CH-ATL-004": 38900,  // 2020, Piedmont backup
+      "CH-ATL-005": 49700,  // 2019, Piedmont second backup
+      "CH-ATL-006": 20300,  // 2022, Piedmont newest
     }[chiller.chiller_id] ?? 20000;
 
   const startsBase =
@@ -113,6 +124,16 @@ function baseProfile(chiller) {
       "CH-ATL-003": 1840,
       "CH-CHI-004": 1565,
       "CH-PHX-005": 985,
+      // New chillers
+      "CH-ATL-002": 780,
+      "CH-ATL-007": 1920,
+      "CH-DAL-003": 870,
+      "CH-DAL-004": 840,
+      "CH-DAL-005": 1210,
+      "CH-DAL-006": 760,
+      "CH-ATL-004": 1680,
+      "CH-ATL-005": 2050,
+      "CH-ATL-006": 880,
     }[chiller.chiller_id] ?? 1000;
 
   return {
@@ -142,8 +163,11 @@ function amsTrendFactor(chillerId, ts, startTime, endTime) {
 
   switch (chillerId) {
     case "CH-ATL-001": {
-      // Efficiency drift: power_kw factor grows from 1.0 to 1.09 over 180 days
-      return { efficiencyDrift: 1.0 + progress * 0.09 };
+      // Efficiency drift: flat for first 90 days, then ramps strongly in last 90 days.
+      // This concentrates the trend in the analysis window so getUnitEfficiencyTrend
+      // measures ~9-10% drift_pct (well above the 5% threshold).
+      const ramp = Math.max(0, (progress - 0.5) / 0.5); // 0 in first 90d, 0→1 in last 90d
+      return { efficiencyDrift: 1.0 + ramp * 0.20 };
     }
     case "CH-CHI-004": {
       // Pre-fault: motor_winding_temp_f rises +18°F in the last 50% of the window

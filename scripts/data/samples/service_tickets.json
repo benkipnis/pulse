@@ -210,6 +210,26 @@
     "root_cause": "Failed scroll protection module on circuit A1"
   },
   {
+    "ticket_id": "WO-2024-12301",
+    "chiller_id": "CH-CHI-004",
+    "site_id": "SITE-CHI-004",
+    "status": "closed",
+    "priority": "P2",
+    "type": "corrective",
+    "opened_at": "2024-12-11T08:30:00Z",
+    "closed_at": "2024-12-12T14:00:00Z",
+    "reported_symptom": "Compressor A1 motor temperature alarm A1.01 — winding temps reached 198°F during peak load. Building automation system generated priority alert.",
+    "related_alarm_codes": ["A1.01"],
+    "technician": { "id": "TECH-3341", "name": "Marcus Webb" },
+    "work_performed": "Motor PTC sensor (Circuit A) found out of calibration — reading 12°F low, masking true winding temperature. Replaced sensor. Refrigerant charge verified at 98% nominal. Compressor amp draw within spec. Unit cycled 6 times under load to verify alarm clear.",
+    "parts_replaced": [
+      { "part_number": "00PPG000012200A", "description": "Motor Temperature PTC Sensor — Circuit A", "quantity": 1 }
+    ],
+    "resolution": "Unit returned to service after sensor replacement. Motor temps reading correctly at 173°F under full load.",
+    "root_cause": "Faulty PTC sensor providing low-biased readings, causing delayed alarm response.",
+    "technician_notes": "Compressor A1 shows minor increase in vibration amplitude compared to baseline. Recommend monitoring bearing condition at next scheduled PM."
+  },
+  {
     "ticket_id": "WO-2025-07654",
     "chiller_id": "CH-CHI-004",
     "site_id": "SITE-CHI-004",
@@ -227,7 +247,28 @@
     "work_performed": "Motor PTC sensor tested in range. Found severely fouled condenser coils on circuit A — cottonwood debris blocking airflow. Performed chemical coil cleaning. Verified all condenser fans at full speed. Motor winding temps normalized within 2 hours.",
     "parts_replaced": [],
     "resolution": "Unit returned to service. Motor temperatures 15°F below trip threshold under full load.",
-    "root_cause": "Restricted condenser airflow from fouled coils causing elevated head pressure and motor temperature"
+    "root_cause": "Restricted condenser airflow from fouled coils causing elevated head pressure and motor temperature",
+    "technician_notes": "Compressor A1 vibration slightly elevated vs. last visit (Dec 2024). Bearing condition within tolerance but trending. Recommend bearing inspection at next major PM."
+  },
+  {
+    "ticket_id": "WO-2026-01887",
+    "chiller_id": "CH-CHI-004",
+    "site_id": "SITE-CHI-004",
+    "status": "closed",
+    "priority": "P3",
+    "type": "preventive",
+    "opened_at": "2026-01-14T09:00:00Z",
+    "closed_at": "2026-01-14T16:30:00Z",
+    "reported_symptom": "Scheduled semi-annual PM — winter shutdown inspection.",
+    "related_alarm_codes": [],
+    "technician": { "id": "TECH-3341", "name": "Marcus Webb" },
+    "work_performed": "Full PM inspection. Compressor A1 shaft seal showing slight weepage at gasket face. Replaced shaft seal kit and gasket. Refrigerant topped to 100% nominal. Bearing vibration measured at 0.28 in/s — elevated vs. 0.19 in/s baseline from commissioning but within 0.30 in/s service limit. Logged for trend tracking.",
+    "parts_replaced": [
+      { "part_number": "30XA-COMP-A-SEAL", "description": "Compressor Shaft Seal Kit — 30XA Circuit A", "quantity": 1 }
+    ],
+    "resolution": "Unit ready for spring/summer season. All safety checks passed.",
+    "root_cause": "Scheduled preventive maintenance.",
+    "technician_notes": "ALERT: Compressor A1 bearing vibration at 93% of service limit and trending upward over last 3 visits. Recommend planning bearing replacement within 6 months. Motor winding temps at idle 8°F above prior winter baseline — bears monitoring into cooling season."
   },
   {
     "ticket_id": "WO-2025-08990",

@@ -124,6 +124,285 @@
     "customer_id": "CUST-004"
   },
   {
+    "chiller_id": "CH-ATL-002",
+    "site_id": "SITE-ATL-001",
+    "serial_number": "30RB200-2023-0071448",
+    "model_family": "30RB",
+    "model_number": "30RB-200",
+    "product_line": "AquaSnap",
+    "configuration": {
+      "cooling_capacity_tons": 200,
+      "refrigerant": "R-410A",
+      "circuit_count": 2,
+      "compressor_type": "scroll",
+      "condenser_type": "air_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2023-04-05",
+    "firmware_version": "NetCtrl v7.3.2",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:44:00Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 44.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 1.19,
+    "rated_capacity_tons": 200,
+    "service_contract_expiry": "2028-11-30",
+    "equipment_id": "CH-ATL-002",
+    "customer_id": "CUST-001"
+  },
+  {
+    "chiller_id": "CH-ATL-007",
+    "site_id": "SITE-ATL-001",
+    "serial_number": "30RB250-2020-0044812",
+    "model_family": "30RB",
+    "model_number": "30RB-250",
+    "product_line": "AquaSnap",
+    "configuration": {
+      "cooling_capacity_tons": 250,
+      "refrigerant": "R-410A",
+      "circuit_count": 2,
+      "compressor_type": "scroll",
+      "condenser_type": "air_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2020-09-22",
+    "firmware_version": "NetCtrl v7.2.1",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:45:10Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 44.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 1.22,
+    "rated_capacity_tons": 250,
+    "service_contract_expiry": "2027-05-31",
+    "equipment_id": "CH-ATL-007",
+    "customer_id": "CUST-001"
+  },
+  {
+    "chiller_id": "CH-DAL-003",
+    "site_id": "SITE-DAL-002",
+    "serial_number": "19XR-2019-0021187",
+    "model_family": "19XR",
+    "model_number": "19XR-450",
+    "product_line": "Evergreen",
+    "configuration": {
+      "cooling_capacity_tons": 450,
+      "refrigerant": "R-134a",
+      "circuit_count": 1,
+      "compressor_type": "centrifugal",
+      "condenser_type": "water_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2019-11-14",
+    "firmware_version": "ICVC v4.8.3",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:41:55Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 42.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 0.61,
+    "rated_capacity_tons": 450,
+    "service_contract_expiry": "2027-06-30",
+    "equipment_id": "CH-DAL-003",
+    "customer_id": "CUST-002"
+  },
+  {
+    "chiller_id": "CH-DAL-004",
+    "site_id": "SITE-DAL-002",
+    "serial_number": "19XR-2020-0028904",
+    "model_family": "19XR",
+    "model_number": "19XR-500",
+    "product_line": "Evergreen",
+    "configuration": {
+      "cooling_capacity_tons": 500,
+      "refrigerant": "R-134a",
+      "circuit_count": 1,
+      "compressor_type": "centrifugal",
+      "condenser_type": "water_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2020-06-03",
+    "firmware_version": "ICVC v4.9.1",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:42:20Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 42.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 0.60,
+    "rated_capacity_tons": 500,
+    "service_contract_expiry": "2028-02-28",
+    "equipment_id": "CH-DAL-004",
+    "customer_id": "CUST-002"
+  },
+  {
+    "chiller_id": "CH-DAL-005",
+    "site_id": "SITE-DAL-002",
+    "serial_number": "30XA300-2022-0063341",
+    "model_family": "30XA",
+    "model_number": "30XA-300",
+    "product_line": "AquaForce",
+    "configuration": {
+      "cooling_capacity_tons": 300,
+      "refrigerant": "R-410A",
+      "circuit_count": 2,
+      "compressor_type": "scroll",
+      "condenser_type": "air_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2022-03-17",
+    "firmware_version": "Touch Pilot v6.2.2",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:43:40Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 42.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 1.20,
+    "rated_capacity_tons": 300,
+    "service_contract_expiry": "2028-09-30",
+    "equipment_id": "CH-DAL-005",
+    "customer_id": "CUST-002"
+  },
+  {
+    "chiller_id": "CH-DAL-006",
+    "site_id": "SITE-DAL-002",
+    "serial_number": "19XR-2018-0016782",
+    "model_family": "19XR",
+    "model_number": "19XR-650",
+    "product_line": "Evergreen",
+    "configuration": {
+      "cooling_capacity_tons": 650,
+      "refrigerant": "R-134a",
+      "circuit_count": 1,
+      "compressor_type": "centrifugal",
+      "condenser_type": "water_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2018-08-29",
+    "firmware_version": "ICVC v4.7.9",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:40:50Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 42.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 0.57,
+    "rated_capacity_tons": 650,
+    "service_contract_expiry": "2026-12-31",
+    "equipment_id": "CH-DAL-006",
+    "customer_id": "CUST-002"
+  },
+  {
+    "chiller_id": "CH-ATL-004",
+    "site_id": "SITE-ATL-003",
+    "serial_number": "30RB200-2020-0041927",
+    "model_family": "30RB",
+    "model_number": "30RB-200",
+    "product_line": "AquaSnap",
+    "configuration": {
+      "cooling_capacity_tons": 200,
+      "refrigerant": "R-410A",
+      "circuit_count": 2,
+      "compressor_type": "scroll",
+      "condenser_type": "air_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2020-05-19",
+    "firmware_version": "NetCtrl v7.2.0",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:39:30Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 42.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 1.22,
+    "rated_capacity_tons": 200,
+    "service_contract_expiry": "2027-07-31",
+    "equipment_id": "CH-ATL-004",
+    "customer_id": "CUST-003"
+  },
+  {
+    "chiller_id": "CH-ATL-005",
+    "site_id": "SITE-ATL-003",
+    "serial_number": "30RB250-2019-0038104",
+    "model_family": "30RB",
+    "model_number": "30RB-250",
+    "product_line": "AquaSnap",
+    "configuration": {
+      "cooling_capacity_tons": 250,
+      "refrigerant": "R-410A",
+      "circuit_count": 2,
+      "compressor_type": "scroll",
+      "condenser_type": "air_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2019-08-07",
+    "firmware_version": "NetCtrl v7.1.4",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:38:55Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 42.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 1.22,
+    "rated_capacity_tons": 250,
+    "service_contract_expiry": "2027-04-30",
+    "equipment_id": "CH-ATL-005",
+    "customer_id": "CUST-003"
+  },
+  {
+    "chiller_id": "CH-ATL-006",
+    "site_id": "SITE-ATL-003",
+    "serial_number": "30XA120-2022-0061583",
+    "model_family": "30XA",
+    "model_number": "30XA-120",
+    "product_line": "AquaForce",
+    "configuration": {
+      "cooling_capacity_tons": 120,
+      "refrigerant": "R-410A",
+      "circuit_count": 2,
+      "compressor_type": "scroll",
+      "condenser_type": "air_cooled"
+    },
+    "operating_status": "running",
+    "install_date": "2022-07-11",
+    "firmware_version": "Touch Pilot v6.2.1",
+    "connectivity": {
+      "remote_monitoring_enabled": true,
+      "last_communication_at": "2026-07-17T16:40:10Z"
+    },
+    "current_setpoints": {
+      "leaving_chilled_water_f": 44.0,
+      "cooling_setpoint_select": "leaving_water"
+    },
+    "rated_efficiency_kwpton": 1.18,
+    "rated_capacity_tons": 120,
+    "service_contract_expiry": "2028-06-30",
+    "equipment_id": "CH-ATL-006",
+    "customer_id": "CUST-003"
+  },
+  {
     "chiller_id": "CH-PHX-005",
     "site_id": "SITE-PHX-005",
     "serial_number": "30RB-2022-0059103",

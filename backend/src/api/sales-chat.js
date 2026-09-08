@@ -56,9 +56,17 @@ router.post("/chat", async (req, res) => {
 
   const mcpClient = new McpHttpClient();
 
+  // Step 1: MCP connect (isolated so errors are clearly labelled)
   try {
     await mcpClient.connect();
+  } catch (err) {
+    sseWrite(res, "error", { message: `MCP connection failed: ${err.message}` });
+    res.end();
+    return;
+  }
 
+  // Step 2: Run agent (LLM calls)
+  try {
     await runSalesAgent({
       mcpClient,
       llmConfig,

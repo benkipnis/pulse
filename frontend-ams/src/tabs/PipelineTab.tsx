@@ -66,6 +66,11 @@ export function PipelineTab() {
 
   return (
     <div className="tab-body">
+      {/* Pipeline story banner */}
+      <div className="pipeline-banner">
+        <strong>How this works:</strong> Opportunities are created by the Sales Agent (in the Opportunity Builder tab) and written to the <code>sales_opportunities</code> collection in MongoDB. 8 representative opportunities are pre-seeded across all scenario types to demonstrate the full pipeline. Use <strong>thumbs-up / thumbs-down</strong> to record rep qualification — this writes <code>rep_reaction</code> directly to the document in real time.
+      </div>
+
       {/* Filters */}
       <div className="pipeline-filters">
         <div>
@@ -140,10 +145,20 @@ export function PipelineTab() {
       {!loading && opportunities.length === 0 && (
         <div className="empty-zone">
           <div className="empty-zone-icon">📋</div>
-          <p>
-            No {filterStatus} opportunities yet.{" "}
-            {filterStatus === "open" && "Use the Opportunity Builder to generate some."}
-          </p>
+          {filterCustomer || filterScenario !== "all" ? (
+            <p>No {filterStatus} opportunities match these filters.{" "}
+              <button className="link-btn" onClick={() => { setFilterCustomer(""); setFilterScenario("all"); }}>
+                Clear filters
+              </button>{" "}to see all seeded data.
+            </p>
+          ) : (
+            <p>
+              No {filterStatus} opportunities found.{" "}
+              {filterStatus === "open"
+                ? "Run npm run seed:drop to load the 8 pre-seeded opportunities, or use the Opportunity Builder to generate new ones."
+                : `Switch to "Open" status to see seeded opportunities.`}
+            </p>
+          )}
         </div>
       )}
 
